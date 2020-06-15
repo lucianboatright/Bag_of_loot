@@ -4,7 +4,7 @@ import loginImage from '../..bag_o_party.png'
 
 
 
-export class Login extends React.Component {
+export class Register extends React.Component {
     constrctor(props) {
         super(props);
     }
@@ -22,11 +22,15 @@ export class Login extends React.Component {
                 <input type="text" name="username" placeholder="username">
             </div>
                 <div className="form-group">
+                <label htmlFor="email"> Username </label>
+                <input type="text" name="email" placeholder="email">
+            </div>
+                <div className="form-group">
                 <label htmlFor="pasword"> Username </label>
                 <input type="pasword" name="pasword" placeholder="pasword">
             </div>
             <div className="footer">
-             <button type='button' className="btn"> Login </button>
+             <button type='button' className="btn"> register </button>
             </div>
         </div>
     }

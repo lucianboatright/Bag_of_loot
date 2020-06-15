@@ -1,98 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Person/Person';
+import { Login } from "./components/login/index"
 
 class App extends Component {
-  state = {
-    persons: [
-      { key: "1111", name: 'Max', age: 28 },
-      { key: "2222", name: 'Manu', age: 29 },
-      { key: "3333", name: 'Stephanie', age: 26 }
-    ],
-    otherState: 'some other value',
-    showPersons: false
-  }
-  // switchNameHandler = (newName) => {
-  //   // console.log('Was clicked!');
-  //   // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
-  //   this.setState( {
-  //     persons: [
-  //       { name: newName, age: this.state.persons[0].age += 1},
-  //       { name: 'Manu', age: this.state.persons[0].age += 1},
-  //       { name: 'Stephanie', age: this.state.persons[0].age += 1 }
-  //     ]
-  //   } )
-  // }
-  nameChangedHandler = (event, key ) => {
-    const personIndex = this.state.persons.findIndex(p => {
-      return p.key === key;
-    });
-
-    const person = {
-      ...this.state.persons[personIndex]
-    };
-    // const = person = Object.assign({}, this.state.persons[personIndex]) other option
-    person.name = event.target.value;
-
-    const persons = [...this.state.persons];
-    persons[personIndex] = person;
-
-    this.setState({ persons: persons});
-  }
-
-  deletePersonHandeler = (personIndex) => {
-    // const persons = this.state.persons.slice();
-    const persons = [...this.state.persons]
-    persons.splice(personIndex, 1);
-    this.setState({persons: persons});
-    console.log(personIndex)
-    console.log(this.state.showPersons)
-  }
-
-  togglePersonsHandeler = () => {
-    const doesShow = this.state.showPersons;
-    this.setState({showPersons: !doesShow})
-  }
 
   render () {
     
-    const style = {
-      backgroundColor: "white",
-      font: "inherit",
-      border: '2px solid blue',
-      padding: '8px',
-      boxShadow: '0 2px 3px #ccc',
-      cursor: 'pointer'
-    }; // values need to be in quote marks as it is in js for 
-
-    let persons = null;
-
-    if (this.state.showPersons) {
-      persons = (
-      <div> 
-        {this.state.persons.map((person, index) => {
-          return <Person 
-          click={() => this.deletePersonHandeler(index)}
-          name={person.name} 
-          age={person.age} 
-          key={person.key}
-          changed={(event) => this.nameChangedHandler(event, person.key)} 
-          />
-        })}
-      </div>
-
-      )
-    }
 
     return (
       <div className="App">
-        <h1>Hi, I'm a React App</h1>
-        <p>This is really working!</p>
-        <button 
-        style={style}
-        onClick={this.togglePersonsHandeler}>Switch Name</button>
-         {/* use ternary statemnt, if state.shoepwersons ?(ture) do __ :(else) null // put componets in div which can be managed   */}
-        {persons}
+        <Login/>
 
       </div>
     );
