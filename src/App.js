@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+// import React from 'react';
+import React, { Component } from 'react'
 import './App.css';
-import { Login } from "./components/login/index"
+import { Login, Register } from "./components/login/index"
 
 class App extends Component {
 
